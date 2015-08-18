@@ -23,13 +23,24 @@ class AccountsController < ApplicationController
     end
   end
 
+  def edit
+    @account = Account.find_by_id(params[:id])
+  end
 
+  def update
+    @account = Account.find_by_id(params[:id])
 
-private
+    if @account.update(account_params)
+      redirect_to @account
+    else
+      render 'edit'
+    end
+  end
+
+  private
   def account_params
     params.require(:account).permit(:name, :catch_phrase, :street, :city, :state, :zip, :logo, :user_id)
   end
-
 end
 
 

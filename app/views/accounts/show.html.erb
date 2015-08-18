@@ -25,39 +25,9 @@
     <% end %>
   </section>
   <section class="account_details">
-    <%= erb :"accounts/_details" %>
+    <%= render 'details' %>
   </section>
 <!-- Order Section -->
-  <% if current_user == @account.user %>
-    <section class="orders">
-      <h3>Related Orders</h3>
-      <form id="new_order_form" action="/orders/new" method="get">
-        <input type='hidden' name="account_id" value=<%=@account.id %>></input>
-        <input type="submit" value="New Order"></input>
-      </form>
-      <section class="new_orders">
-        <!-- used in ajax to show new order fields -->
-      </section>
-      <section class="related_orders">
-        <%= erb :"orders/_order_details", locals: {:orders => @orders} %>
-      </section>
-
-      <section class="order_details">
-
-      </section>
-
-
-
-      <section class="related_lineitems">
-
-      </section>
-
-    </section>
-
-
-  <% else %>
-    <h3>You must be the Account Owner to see more details.</h3>
-  <% end%>
 
 </main>
 
