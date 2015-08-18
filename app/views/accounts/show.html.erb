@@ -14,13 +14,8 @@
     <h3><a href="/accounts">Accounts</a></h3>
     <% if current_user == @account.user %>
       <nav class="account_buttons">
-        <form class="buttons" action="/accounts/<%= @account.id%>/edit" method="get">
-          <input type="submit" value="Edit"></input>
-        </form>
-        <form class="buttons" action="/accounts/<%= @account.id%>" method="post">
-          <input type="hidden" name="_method" value="delete"></input>
-          <input type="submit" value="Delete"></input>
-        </form>
+        <%= link_to 'Edit', edit_account_path(@account) %>
+        <%= button_to 'Destroy', account_path(@account), method: :delete %>
       </nav>
     <% end %>
   </section>
