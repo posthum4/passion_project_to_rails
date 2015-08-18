@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   # a create and destroy route on your sessions
-  root 'sessions#index'
+  root 'accounts#index'
+  resources :sessions
   resources :accounts
   resources :users
+
+
+# https://gist.github.com/thebucknerlife/10090014
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

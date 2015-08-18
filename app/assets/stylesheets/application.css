@@ -13,3 +13,80 @@
  *= require_tree .
  *= require_self
  */
+header {
+  /*display: inline-block;*/
+  border-bottom: 2px solid black;
+/*  margin-bottom: 15px;*/
+  margin-left: 10px;
+  background-color: #afb5b4;
+  height: 130px;
+}
+
+main {
+  margin-left: 10px;
+}
+
+label {
+  width: 80px;
+}
+
+h1 {
+  margin-top: 0px;
+}
+
+.error {
+  color: red;
+}
+
+table {
+  margin-top: 15px;
+}
+
+nav form{
+  display: inline-block;
+  margin-top: 10px;
+}
+
+h4 {
+  margin: 0px;
+  display: inline-block;
+  width: 150px;
+}
+
+.account_details {
+  border-bottom: 1px solid gray;
+}
+
+.buttons{
+  display: inline-block;
+}
+
+.logo {
+  display: inline-block;
+  width: 200px;
+  height: 130px;
+  margin: 0px 20px 0px 0px;
+}
+
+.motto {
+  position: relative;
+  top: -10px;
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+.logout{
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+
+th, td {
+  padding-right: 20px;
+}
+
+.column_headers {
+  text-align: left;
+  margin-bottom: 10px;
+}
+

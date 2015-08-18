@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def index
-    @user = User.new
+    @session = User.new
     render :login
   end
 

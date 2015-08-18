@@ -1,0 +1,48 @@
+<header>
+  <img class="logo" src="https://pbs.twimg.com/profile_images/478970119037546497/CFC-_kSg.png" alt="Company Logo">
+  <h1 class="motto">Accounts Page</h1>
+    <a class="logout" href="/logout">Logout</a>
+</header>
+<nav class="tabs">
+  <form action="/users" method="get">
+    <button class="nav-button">Users</button>
+  </form>
+  <form action="/accounts" method="get">
+    <button class="nav-button">Accounts</button>
+  </form>
+  <form action="/orders" method="get">
+    <button class="nav-button">Orders</button>
+  </form>
+</nav>
+
+<main>
+  <h3 class="welcome">Hi, <%= current_user.first_name %></h3>
+
+  <nav>
+    <form class="buttons" action="users/<%=current_user.id %>/accounts" method="get">
+      <input type="submit" value="My Accounts"></input>
+    </form>
+    <form class="buttons" action="/accounts/new" method="get">
+      <input type="submit" value="New Account"></input>
+    </form>
+  </nav>
+
+<table>
+  <tr class="column_headers">
+    <th class="edit">Edit</th>
+    <th class="name">Account Name</th>
+    <th clsss="state">State</th>
+    <th class="owner">Owner Name</th>
+  </tr>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td class="edit"><a href="/accounts/<%= account.id %>/edit">Edit</a></td>
+      <td class="name"><a href="/accounts/<%= account.id %>"><%= account.name %></a></td>
+      <td class="state"><%= account.state %></td>
+      <td class="owner"><%= account.user.full_name%></td>
+
+    </tr>
+  <% end %>
+
+</table>
+</main>
