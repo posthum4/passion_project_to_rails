@@ -23,6 +23,31 @@
     <%= render 'details' %>
   </section>
 <!-- Order Section -->
+<div class="orders">
+<%= button_to :orders, new_account_order_path(@account, @order), method: :get %>
+<br>
+</div>
+
+<div class="new_order_form">
+
+</div>
+
+<table >
+  <tr class="column_headers">
+    <th class="edit">Edit</th>
+    <th class="name">Order</th>
+    <th clsss="status">Status</th>
+    <th class="close-date">Close Date</th>
+  </tr>
+  <% @account.orders.each_with_index  do |order, index| %>
+  <tr id="order<%= index %>">
+    <td class="edit"><a href="/orders/<%= order.id %>/edit">Edit</a></td>
+    <td class="name"><a href="/orders/<%= order.id %>"><%= order.id %></a></td>
+    <td class="status"><%= order.status %></td>
+    <td class="close-date"><%= order.close_date%></td>
+  </tr>
+  <% end %>
+</table>
 
 </main>
 

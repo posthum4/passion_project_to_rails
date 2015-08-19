@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  # a create and destroy route on your sessions
-  root 'sessions#new'
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create', as: 'create_sessions'
+
+  # a create and destroy route on your sessions
+  root 'accounts#index'
+
+  get '/login' => 'sessions#new', as: "login"
+  post '/login' => 'sessions#create', as: 'create_session'
   delete '/logout' => 'sessions#destroy', as: 'logout'
 
-  resources :accounts
+  resources :accounts do
+    resources :orders
+  end
   resources :users
 
 
