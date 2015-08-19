@@ -1,0 +1,41 @@
+<header>
+  <img class="logo" src="https://pbs.twimg.com/profile_images/478970119037546497/CFC-_kSg.png" alt="Company Logo">
+  <h1 class="motto">New Account</h1>
+    <a class="logout" href="/logout">Logout</a>
+</header>
+
+<h1> <%= current_user.first_name %> </h1>
+
+<main>
+  <% if @errors %>
+    <p class="error"><%= @errors[:input_error] %></p>
+  <% end %>
+
+
+</main>
+
+
+<%= form_for @account do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id %>
+  <%= f.label :catch_phrase %>
+  <%= f.text_field :catch_phrase %>
+  <%= f.label :logo %>
+  <%= f.text_field :logo %>
+
+  <%= f.label :street %>
+  <%= f.text_field :street %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+
+  <%= f.submit %>
+
+
+<% end  %>

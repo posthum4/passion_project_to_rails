@@ -1,0 +1,28 @@
+<header>
+  <img class="logo" src="<%= @account.logo%>" alt="Company Logo">
+  <h1 class="motto"><%= @account.catch_phrase %></h1>
+  <%= button_to 'Logout', logout_path, method: :delete %>
+</header>
+
+<main>
+  <!-- Account Section -->
+  <section class="account_header">
+    <% if @errors %>
+      <p class="error"><%= @errors[:permission_error] %></p>
+    <% end %>
+
+    <h3><a href="/accounts">Accounts</a></h3>
+    <% if current_user == @account.user %>
+      <nav class="account_buttons">
+        <%= button_to 'Edit', edit_account_path(@account), method: :get %>
+        <%= button_to 'Destroy', account_path(@account), method: :delete %>
+      </nav>
+    <% end %>
+  </section>
+  <section class="account_details">
+    <%= render 'details' %>
+  </section>
+<!-- Order Section -->
+
+</main>
+

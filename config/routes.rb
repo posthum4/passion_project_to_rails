@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+  # a create and destroy route on your sessions
+  root 'sessions#new'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create', as: 'create_sessions'
+  delete '/logout' => 'sessions#destroy', as: 'logout'
+
+  resources :accounts
+  resources :users
+
+
+# https://gist.github.com/thebucknerlife/10090014
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
