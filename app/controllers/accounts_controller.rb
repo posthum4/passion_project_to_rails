@@ -1,7 +1,6 @@
 class AccountsController < ApplicationController
 
   def index
-    login(User.first)
     @accounts = Account.all
   end
 

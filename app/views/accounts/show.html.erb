@@ -1,7 +1,7 @@
 <header>
   <img class="logo" src="<%= @account.logo%>" alt="Company Logo">
   <h1 class="motto"><%= @account.catch_phrase %></h1>
-  <a class="logout" href="/logout">Logout</a>
+  <%= button_to 'Logout', logout_path, method: :delete %>
 </header>
 
 <main>
@@ -14,7 +14,7 @@
     <h3><a href="/accounts">Accounts</a></h3>
     <% if current_user == @account.user %>
       <nav class="account_buttons">
-        <%= link_to 'Edit', edit_account_path(@account) %>
+        <%= button_to 'Edit', edit_account_path(@account), method: :get %>
         <%= button_to 'Destroy', account_path(@account), method: :delete %>
       </nav>
     <% end %>

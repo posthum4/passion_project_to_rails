@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   # a create and destroy route on your sessions
-  root 'accounts#index'
-  resources :sessions
+  root 'sessions#new'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create', as: 'create_sessions'
+  delete '/logout' => 'sessions#destroy', as: 'logout'
+
   resources :accounts
   resources :users
 

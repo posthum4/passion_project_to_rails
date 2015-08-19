@@ -1,28 +1,22 @@
 class SessionsController < ApplicationController
-
-  def index
-    @session = User.new
+  def new
+    @user = User.new
     render :login
   end
 
-  def new
-    redirect_to accounts_path if logged_in?
-    @user = User.new
-  end
-
-  def create # redirect to homepage
-    if logged_in?
+  def create
+    user = user.find_by(username: params[:session][:username])
+    if user.password == params[:session][:password]
+      session[:user_id] = user.id
       redirect_to accounts_path
     else
-      @user = User.find_by(username: params[:user][:username])
-      login(@user)
-      redirect_to accounts_path
+      redirect_to root_path
     end
   end
 
-  def destroy # redirect to root
-    logout(current_user)
-    render json: {logged_out: true}
+  def destroy
+    logout
+    redirect_to root_path
   end
 
 private
