@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def new
-    @account = Account.find_by(id: params[:account_id])
     @order = Order.new
     render '_form', layout: false
   end
