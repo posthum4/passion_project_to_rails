@@ -11,31 +11,8 @@
     <p class="error"><%= @errors[:input_error] %></p>
   <% end %>
 
+<%= render "form" %>
 
 </main>
 
 
-<%= form_for @account do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :user_id %>
-  <%= f.text_field :user_id %>
-  <%= f.label :catch_phrase %>
-  <%= f.text_field :catch_phrase %>
-  <%= f.label :logo %>
-  <%= f.text_field :logo %>
-
-  <%= f.label :street %>
-  <%= f.text_field :street %>
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  <%= f.label :state %>
-  <%= f.text_field :state %>
-  <%= f.label :zip %>
-  <%= f.text_field :zip %>
-
-  <%= f.submit %>
-
-
-<% end  %>

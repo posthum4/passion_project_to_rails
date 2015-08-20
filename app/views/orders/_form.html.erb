@@ -1,0 +1,26 @@
+<%= form_for @order, :url => account_orders_path(@account.orders) do |f| %>
+<br>
+  <%= f.label :status %>
+  <%= f.select(:status) do %>
+    <% [['Open', 'Open'], ['Negotation', 'Negotiation']].each do |c| -%>
+      <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+  <% end %>
+<br>
+<br>
+  <%= f.label :close_date %>
+  <%= f.date_field :close_date %>
+<br>
+<br>
+  <%= f.label :payment_terms %>
+  <%= f.select(:payment_terms) do %>
+    <% [['Net 30', 'Net 30'], ['Net 45', 'Net 45']].each do |c| -%>
+      <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
+    <%= f.hidden_field :account_id, value: @account.id %>
+  <%= f.submit %>
+
+<% end %>

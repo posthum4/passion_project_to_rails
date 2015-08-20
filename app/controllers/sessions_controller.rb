@@ -1,27 +1,26 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    render :login
   end
 
   def create
-    user = user.find_by(username: params[:session][:username])
-    if user.password == params[:session][:password]
-      session[:user_id] = user.id
+    user = User.find_by(username: params[:username])
+    if user.authenticate(params[:password])
+      login(user)
       redirect_to accounts_path
     else
-      redirect_to root_path
+      render 'new'
     end
   end
 
   def destroy
     logout
-    redirect_to root_path
+    redirect_to 'new'
   end
 
-private
+# private
 
-  def user_params
-    params.require(:user).permit(:username, :password)
-  end
+#   def user_params
+#     params.require(:user).permit(:username, :password)
+#   end
 end

@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
 
   def index
+    redirect_to login_path if guest_user?
     @accounts = Account.all
   end
 
